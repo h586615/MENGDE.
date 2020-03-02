@@ -183,7 +183,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		Iterator<T> teller = this.oppramser();
 		while (teller.hasNext()) {
 			element = teller.next();
-			if(!(m2.inneholder(element))) {
+			if (!(m2.inneholder(element))) {
 				((KjedetMengde<T>) differensM).settInn(element);
 			}
 		}
@@ -196,9 +196,9 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		boolean erUnderMengde = true;
 		T element;
 		Iterator<T> teller = m2.oppramser();
-		while(teller.hasNext() && erUnderMengde) {
+		while (teller.hasNext() && erUnderMengde) {
 			element = teller.next();
-			if(!this.inneholder(element)) {
+			if (!this.inneholder(element)) {
 				erUnderMengde = false;
 			}
 		}
@@ -216,5 +216,21 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		start = nyNode;
 		antall++;
 	}
+
+	/******************************************************************
+	 * Returnerer en streng som representerer mengden.
+	 ****************************************************
+	 **************/
+	public String toString() {
+		// For klassen KjedetMengde
+		String resultat = "";
+		LinearNode<T> aktuell = start;
+		while (aktuell != null) {
+			resultat += aktuell.getElement().toString() + "\t";
+			aktuell = aktuell.getNeste();
+		}
+		return resultat;
+	}
+	
 
 }// class
